@@ -7,7 +7,7 @@
 		revision="1.0-SNAPSHOT"
 		conf="test-internal"
 		confs="compile, runtime, test, provided, optional, compile-internal, runtime-internal, test-internal, plugin, sources, docs, pom, scala-tool"
-		date="20160319205406"/>
+		date="20160321023356"/>
 	<dependencies>
 		<module organisation="com.typesafe.play" name="play-ws_2.11">
 			<revision name="2.4.6" status="release" pubdate="20151214092157" resolver="sbt-chain" artresolver="sbt-chain" homepage="https://playframework.com" downloaded="false" searched="false" default="false" conf="default, compile, runtime, default(compile), master" position="43">
