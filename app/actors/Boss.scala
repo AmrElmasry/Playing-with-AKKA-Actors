@@ -2,35 +2,22 @@ package actors
 
 import akka.actor.{ActorRef, Props, Actor}
 import messages.BossMessages._
-import messages.GeneralMessages.Response
 
 /**
   * Created by amrelmasry on 3/19/16.
   */
 class Boss extends Actor {
 
-  var out: ActorRef = null
 
-  val user = context.actorOf(Props[User], "user")
-  val project = context.actorOf(Props[Project], "project")
+  var out: ActorRef = null
+  val checker = context.actorOf(Props[Checker])
 
 
   def receive = {
-
-    case CreateUser(username) =>
-      out = sender()
-      user ! CreateUser(username)
-    case UserCreated(name) =>
-      out ! Response(name)
-
-
     case CreateProject(name) =>
+      val project = context.actorOf(Project.props(checker))
       out = sender()
-      project ! CreateProject(name)
-
-
-    case ProjectCreated(name) =>
-      out ! Response(name)
+      project forward CreateProject(name)
 
 
   }

@@ -3,17 +3,18 @@ package controllers
 import java.util.concurrent.TimeUnit
 
 import actors.Boss
-import messages.BossMessages._
-import akka.actor.{Props, ActorSystem}
-import akka.util.Timeout
-import messages.GeneralMessages.Response
-import play.api.mvc._
+import akka.actor.{ActorSystem, Props}
 import akka.pattern.ask
+import akka.util.Timeout
+import messages.BossMessages.CreateProject
+import messages.GeneralMessages.{Err, Response}
+import play.api.mvc._
+
 
 class Application extends Controller {
 
   val system = ActorSystem("sys")
-  implicit val timeout = Timeout(5, TimeUnit.SECONDS)
+  implicit val timeout = Timeout(2, TimeUnit.SECONDS)
 
   import scala.concurrent.ExecutionContext.Implicits.global
 
@@ -21,24 +22,37 @@ class Application extends Controller {
 
   def index = Action {
     Ok("Welcome to Sengab")
+
   }
 
 
-  def createUser(username: String) = Action.async {
-    boss ? CreateUser(username) map {
-      case Response(msg) =>
-        Ok(s"User $msg Created")
-      case _ =>
-        BadRequest("Bad U")
-    }
-  }
+  def createUser(username: String) = TODO
 
   def createProject(name: String) = Action.async {
-    boss ? CreateProject(name) map {
-      case Response(msg) =>
-        Ok(s"Project $msg Created")
-      case _ =>
-        BadRequest("Bad U")
+
+    val future = boss ? CreateProject(name)
+    future map {
+      case Response(result) =>
+        result
+      case Err(result) =>
+        result
+
     }
   }
+
+  def test(ProjectId: String, UserId: String, name: String) = Action {
+
+    request => {
+      val body = request.body.asText
+      body match {
+        case Some(s) =>
+          Ok(s"I got project $ProjectId $UserId $name with body $s")
+        case None =>
+          Ok(s"I got project $ProjectId $UserId $name without body")
+
+      }
+    }
+
+  }
 }
+

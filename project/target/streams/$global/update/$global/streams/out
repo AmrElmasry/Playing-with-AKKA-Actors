@@ -14171,7 +14171,7 @@
 [debug] 	[NOT REQUIRED] org.scala-sbt#apply-macro;0.13.11!apply-macro.jar
 [debug] 	[NOT REQUIRED] org.scala-lang#jline;2.10.6!jline.jar
 [debug] 	[NOT REQUIRED] org.fusesource.jansi#jansi;1.4!jansi.jar
-[debug] :: resolution report :: resolve 6881ms :: artifacts dl 264ms
+[debug] :: resolution report :: resolve 8909ms :: artifacts dl 154ms
 [debug] 	report for default#actors-design-build;0.1-SNAPSHOT compile produced in /home/amrelmasry/Work/Projects/play_framework/Actors Design/project/target/resolution-cache/reports/default-actors-design-build-compile.xml
 [debug] 	report for default#actors-design-build;0.1-SNAPSHOT runtime produced in /home/amrelmasry/Work/Projects/play_framework/Actors Design/project/target/resolution-cache/reports/default-actors-design-build-runtime.xml
 [debug] 	report for default#actors-design-build;0.1-SNAPSHOT test produced in /home/amrelmasry/Work/Projects/play_framework/Actors Design/project/target/resolution-cache/reports/default-actors-design-build-test.xml
@@ -14185,5 +14185,5 @@
 [debug] 	report for default#actors-design-build;0.1-SNAPSHOT docs produced in /home/amrelmasry/Work/Projects/play_framework/Actors Design/project/target/resolution-cache/reports/default-actors-design-build-docs.xml
 [debug] 	report for default#actors-design-build;0.1-SNAPSHOT pom produced in /home/amrelmasry/Work/Projects/play_framework/Actors Design/project/target/resolution-cache/reports/default-actors-design-build-pom.xml
 [debug] 	report for default#actors-design-build;0.1-SNAPSHOT scala-tool produced in /home/amrelmasry/Work/Projects/play_framework/Actors Design/project/target/resolution-cache/reports/default-actors-design-build-scala-tool.xml
-[debug] 	resolve done (6881ms resolve - 264ms download)
+[debug] 	resolve done (8909ms resolve - 154ms download)
 [info] Done updating.

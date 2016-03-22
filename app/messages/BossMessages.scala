@@ -5,18 +5,13 @@ package messages
   */
 object BossMessages {
 
-  sealed trait UserMessage
 
-  case class CreateUser(username: String) extends UserMessage
+  sealed trait ProjectMessage
 
-  case class UserCreated(username: String) extends UserMessage
+  case class CreateProject(projectName: String) extends ProjectMessage
 
 
-  sealed trait Project
 
-  case class CreateProject(projectName: String) extends Project
-
-  case class ProjectCreated(projectName: String) extends Project
 
 
 }
